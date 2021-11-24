@@ -2,10 +2,10 @@
 
 JAVAC = javac
 OPTIONS = -sourcepath . -d .
-SOURCE_FILES = *.java
+SOURCES = $(wildcard *.java)
+EXECS = $(SOURCES:%.java=%.class)
 
-all:
-	$(JAVAC) $(OPTIONS) $(SOURCE_FILES)
+all: $(EXECS)
 %.class: %.java
 	$(JAVAC) $(OPTIONS) $<
 clean:
